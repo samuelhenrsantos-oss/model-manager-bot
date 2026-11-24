@@ -1,0 +1,38 @@
+services:
+  - type: worker
+    name: model-manager-bot
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DISCORD_CLIENT_ID
+        sync: false
+      - key: DISCORD_GUILD_ID
+        sync: false
+      - key: ALLOWED_GUILD_IDS
+        sync: false
+      - key: ADMIN_ROLE_IDS
+        sync: false
+      - key: ADMIN_USER_IDS
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: MASTER_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        value: model-photos
+      - key: MAX_IMAGE_MB
+        value: 8
+      - key: SESSION_TTL_MINUTES
+        value: 30
+      - key: AUTO_REGISTER_COMMANDS
+        value: true
+      - key: LOG_LEVEL
+        value: info
